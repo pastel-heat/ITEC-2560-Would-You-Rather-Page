@@ -1,9 +1,7 @@
 <template>
   <div class="wyr">
     
-    <h2>Please make your choice.</h2>
-
-    <h3>{{ question }}</h3>
+    <h2>{{ question }}</h2>
 
     <!-- radio buttons bound to wyr answers, and modeled to choice in data-->
     <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change="choiceMade">
@@ -18,6 +16,7 @@
 export default {
   name: 'WouldYouRather',
   props: {
+    id: Number,
     question: String,
     answer1: String,
     answer2: String
@@ -30,14 +29,12 @@ export default {
   methods: {
     choiceMade() {
       //send event to parent when radio button selection is changed. include current choice w/ event
-      this.$emit('answer-changed', this.choice)
+      this.$emit('answer-changed', this.choice, this.id)
     }
-  }
-  
+  }  
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
