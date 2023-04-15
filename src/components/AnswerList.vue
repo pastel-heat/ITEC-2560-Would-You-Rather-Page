@@ -18,5 +18,7 @@ export default {
 </script>
 
 <style scoped>
-    
+    ul {
+        list-style-position: inside;
+    }
 </style>
